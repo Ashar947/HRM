@@ -1,0 +1,46 @@
+{{>header}}
+
+<div class="page-wrapper">
+<div class="content container-fluid">
+<div class="row">
+<div class="col-xl-12 col-sm-12 col-12 mb-4">
+<div class="breadcrumb-path ">
+<ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html"><img src="img/dash.png" class="mr-2" alt="breadcrumb">Home</a>
+</li>
+<li class="breadcrumb-item active">Reminder</li>
+</ul>
+<h3>Reminders</h3>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xl-12 col-sm-12 col-12 ">
+<div class="card">
+<div class="card-header">
+<h2 class="card-titles">Add Reminder</h2>
+</div>
+<form action="/reminder" method="post">
+<div class="form-creation">
+<div class="row">
+<div class="col-xl-6 col-sm-10 col-12 ">
+<div class="form-group">
+<label>Reminder<span class="mandatory">*</span> </label>
+<input type="text" name="heading">
+</div>
+</div>
+<div class="col-xl-6 col-sm-12 col-12 ">
+<div class="form-group">
+    <div class="form-btn">
+<button type="submit" class="btn btn-apply">Apply</button>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{{>footer}}

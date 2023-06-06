@@ -1,0 +1,157 @@
+{{>header}}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 col-12 mb-4">
+                <div class="breadcrumb-path ">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><img src="img/dash.png" class="mr-2"
+                                    alt="breadcrumb">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active"> Leave</li>
+                    </ul>
+                    <h3>Leave</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 col-12 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-titles">Apply Leaves</h2>
+                    </div>
+                    <form action="/leave" method="post">
+                        <div class="form-creation">
+                            <div class="row">
+                                <div class="col-xl-6 col-sm-6 col-12 ">
+                                    <div class="form-group">
+                                        <label>Leave Type <span class="mandatory">*</span> </label>
+                                        <select name="ltype" class="select">
+                                            <option value="Casual">Casual leave</option>
+                                            <option value="Earned">Earned leave</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Leave Reason<span class="mandatory">*</span></label>
+                                        <input type="text" name="reason">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-sm-12 col-12 ">
+                                    <div class="form-group">
+                                        <label>From </label>
+                                        <input name="from" type="date">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-sm-12 col-12 ">
+                                    <div class="form-group">
+                                        <label>To</label>
+                                        <input name="to" type="date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-sm-12 col-12 ">
+                                    <div class="form-btn">
+                                        <button type="submit" class="btn btn-apply">Apply</button>
+                                    </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-xl-12 col-sm-12 col-12 ">
+                    <div class="card ">
+                        <div class="card-header">
+                            <h2 class="card-titles">Leave Details</h2>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table  custom-table  no-footer">
+                                    <thead>
+                                        <tr>
+                                            <th>Employee Name</th>
+                                            <th>Leave Reason</th>
+                                            <th>Leave Type</th>
+                                            <th>From </th>
+                                            <th>To</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each data}}
+                                        <tr>
+                                            <td>
+                                                <div class="table-img">
+                                                    <label>{{this.empName}}</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <label>{{this.Reason}}</label>
+                                            </td>
+                                            <td><label>{{this.leaveType}}</label></td>
+                                            <td>
+                                                <label>{{this.from}}</label>
+                                            </td>
+                                            <td><label>{{this.to}} </label></td>
+
+                                            <td>
+                                                
+                                                <label><a class="action_label3">{{this.Status}}</a></label>
+                                            </td>
+
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal{{this.id}}">
+                                                    Actions
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal{{this.id}}" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                    Update
+                                                                    Application</h1>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="buttons">
+                                                                    <a href="/updateleave/{{this.id}}" type="button"
+                                                                        class="btn btn-primary"
+                                                                        style="padding:5px;">Approve</a>
+                                                                    <a href="delleave/{{this.id}}" type="button"
+                                                                        class="btn btn-warning">Reject</a>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                            </div>
+                            {{/each}}
+
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {{>footer}}
